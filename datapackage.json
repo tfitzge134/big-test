@@ -61,9 +61,9 @@
       "type": "Graph",
       "state": {
         "graphType": "lines",
-        "group": "Date",
+        "group": "Country",
         "series": [
-          "Dollar PPP"
+          "Dollar price"
         ]
       }
     }
