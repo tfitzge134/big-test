@@ -54,18 +54,5 @@
         ]
       }
     }
-  ],
-  "views": [
-    {
-      "id": "Graph",
-      "type": "Graph",
-      "state": {
-        "graphType": "lines",
-        "group": "Country",
-        "series": [
-          "Dollar price"
-        ]
-      }
-    }
   ]
 }
