@@ -1,0 +1,24 @@
+{
+  "name": "big-mac-index",
+  "version": "1.0.0",
+  "description": "The Big Mac index, also known as Big Mac PPP - survey done by The Economist magazine that is used to measure the purchasing power parity (PPP) between nations, using the price of a Big Mac as the benchmark.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zelima/big-mac-index.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zelima/big-mac-index/issues"
+  },
+  "homepage": "https://github.com/zelima/big-mac-index#readme",
+  "dependencies": {
+    "csv-parser": "^2.3.3",
+    "express": "^4.17.1"
+  }
+}
