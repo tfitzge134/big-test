@@ -7,7 +7,7 @@ const App = () => {
   const [input, setInput] = useState('');
   const [ppp, setPPP] = useState('');
   const [data, setData] = useState(bigMac);
-  const baseUrl = 'https://cors-anywhere.herokuapp.com';
+  const baseUrl = 'https://thingproxy.freeboard.io/fetch/';
 
   const getUserIp = () => {
     fetch('https://api.ipify.org/?format=json')
@@ -16,10 +16,14 @@ const App = () => {
         getCountry(data.ip);
       });
   };
-
+  // https://javascript.info/fetch-crossorigin
   const getCountry = (ip) => {
     console.log('ip', ip);
-    fetch(`${baseUrl}/https://ipvigilante.com/json/${ip}`)
+    fetch(`${baseUrl}https://ipvigilante.com/json/${ip}`, {
+      'Content-Type': 'application/json',
+      Accept: '*/*',
+      // mode: 'cors',
+    })
       .then((res) => res.json())
       .then((response) => {
         setCountry(response.data.country_name);
