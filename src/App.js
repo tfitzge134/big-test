@@ -6,7 +6,8 @@ const App = () => {
   const [country, setCountry] = useState('');
   const [input, setInput] = useState('');
   const [ppp, setPPP] = useState('');
-  const [data, setData] = useState(bigMac);
+  const [data, setData] = useState([]);
+  const [bigMacVolume, setBigMacVolume] = useState('');
   const baseUrl = 'https://thingproxy.freeboard.io/fetch/';
 
   const getUserIp = () => {
@@ -32,9 +33,11 @@ const App = () => {
 
   useEffect(() => {
     getUserIp();
+    setData(bigMac);
   }, []);
 
-  const getBigMacNumber = () => {
+  const getBigMacNumber = (e) => {
+    e.preventDefault();
     const getFiltered = data.filter((d) => d.Country == country);
     const randCountry =
       getFiltered[Math.floor(Math.random() * getFiltered.length)];
@@ -46,6 +49,7 @@ const App = () => {
     console.log('dollar', randCountry['Dollar price']);
     console.log('random country', randCountry);
     console.log('countries matched', result);
+    setBigMacVolume(result);
     setPPP(randCountry['Dollar PPP']);
   };
 
@@ -63,7 +67,16 @@ const App = () => {
         </div>
         <button>Submit</button>
       </form>
-      <p className="result">You could buy {ppp} of Big Macs in your country</p>
+      {ppp !== '' && (
+        <div>
+          <p className="result">
+            You could buy {ppp} of Big Macs in your country
+          </p>
+          <p className="result">
+            You could buy {bigMacVolume} of Big Macs in {country} with ${input}
+          </p>
+        </div>
+      )}
     </div>
   );
 };
